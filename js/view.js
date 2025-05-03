@@ -14,6 +14,7 @@ export default class View {
     this.addTodoForm.onClick((title, description) => this.addTodo(title, description));
     this.modal.onClick((id, values) => this.editTodo(id, values));
     this.filters.onClick((filters) => this.filter(filters));
+    document.getElementById('clear-filters').onclick = () => this.clearFilters();
   }
 
   setModel(model) {
@@ -112,4 +113,11 @@ export default class View {
     removeBtn.onclick = () => this.removeTodo(todo.id);
     row.children[3].appendChild(removeBtn);
   }
+  clearFilters() {
+    const [, ...rows] = this.table.getElementsByTagName('tr');
+    for (const row of rows) {
+        row.classList.remove('d-none'); // Muestra todas las filas
+    }
+    document.getElementById('filters').reset(); // Resetea el formulario de filtros
+}
 }
