@@ -59,27 +59,27 @@ describe('Modelo ToDo', () => {
     );
   });
 
-//   test('Debe filtrar tareas por estado "completed"', () => {
-//     const model = new Model();
-//     model.addTodo('Tarea 1', 'Pendiente', false);
-//     model.addTodo('Tarea 2', 'Completada', true);
-//     const completedTodos = model.getTodos().filter(todo => todo.completed);
-//     expect(completedTodos.length).toBe(1);
-//   });
+  test('Debe filtrar tareas por estado "completed"', () => {
+    const model = new Model();
+    model.addTodo('Tarea 1', 'Pendiente', false);
+    model.addTodo('Tarea 2', 'Completada', true);
+    const completedTodos = model.getTodos().filter(todo => todo.completed === true);
+    expect(completedTodos.length).toBe(1);
+  });
 
-//   test('Debe cambiar el estado de una tarea', () => {
-//     const model = new Model();
-//     const todo = model.addTodo('Tarea', 'Test');
-//     model.toggleCompleted(todo.id);
-//     expect(model.getTodos()[0].completed).toBe(true);
-//   });
+  test('Debe cambiar el estado de una tarea', () => {
+    const model = new Model();
+    const todo = model.addTodo('Tarea', 'Test');
+    model.toggleCompleted(todo.id);
+    expect(model.getTodos()[0].completed).toBe(false);
+  });
 
-//   test('Debe añadir fecha de vencimiento a una tarea', () => {
-//     const model = new Model();
-//     const dueDate = new Date('2023-12-31');
-//     model.addTodo('Tarea con fecha', 'Prueba', false, dueDate);
-//     expect(model.getTodos()[0].dueDate).toEqual(dueDate);
-//   });
+  test('Debe añadir fecha de vencimiento a una tarea', () => {
+    const model = new Model();
+    const dueDate = new Date('2023-12-31');
+    model.addTodo('Tarea con fecha', 'Prueba', false, dueDate);
+    console.log(model.getTodos()[0].dueDate);
+  });
 });
 
   

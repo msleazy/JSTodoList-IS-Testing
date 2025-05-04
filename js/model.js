@@ -46,20 +46,21 @@ export default class Model {
     this.save();
   }
 
-  addTodo(title, description) {
+  addTodo(title, description, completed = false) {
     const todo = {
       id: this.currentId++,
       title,
       description,
-      completed: false,
+      completed,
     }
-
+  
     this.todos.push(todo);
     console.log(this.todos);
     this.save();
-
+  
     return {...todo};
   }
+  
 
   removeTodo(id) {
     const index = this.findTodo(id);
